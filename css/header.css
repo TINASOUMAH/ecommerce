@@ -1,5 +1,5 @@
 
-  transition: text-shadow 0.3s, color 0.3s, transform 0.3s;
+
 
 .section_image .overlay-text h1:hover, .section_image .overlay-text p:hover {
   color: #fff;
@@ -97,7 +97,7 @@ body {
   font-weight: bold;
   pointer-events: none;
 }
-}
+
 
 .icon-connexion {
   margin-left: 18px;
@@ -195,6 +195,26 @@ a:hover{
   justify-content: center;
   padding: 0;
 }
+/*
+.section_image{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  animation: home 205 linear infinite;
+}
+@keyframes home{
+  0%{background-image: url(../image/b4769010-342d-4e52-a25c-a7e88fab106f.jpeg);}
+  30%{background-image: url(../image/Black\ friday\ shopping\ background\ for\ social\ media\ \(1\).jpeg);}
+  60%{background-image: url(../image/Bags\ retail\ and\ black\ woman\ with\ a\ credi…\ \(1\).jpeg);}
+  80%{background-image: url(../image/Photo\ african\ woman\ shopping\ bag\ and\ smi…\ \(1\).jpeg);}
+  100%{background-image: url(../image/….jpeg);}
+}*/
+
+
 
 
 .section_image {
@@ -207,6 +227,7 @@ a:hover{
   z-index: 1;
   animation: hero-cool-zoom 14s cubic-bezier(0.4,0,0.2,1) infinite alternate;
 }
+
 
 @keyframes hero-cool-zoom {
   0% {
