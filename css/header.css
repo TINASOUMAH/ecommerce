@@ -1,74 +1,4 @@
-/* ================= RESPONSIVE DESIGN ================= */
-@media (max-width: 1024px) {
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  .section_image .overlay-text {
-    font-size: 1.1rem;
-    height: 320px;
-  }
-  .footer-containe {
-    flex-wrap: wrap;
-    min-width: 0;
-    gap: 12px;
-  }
-}
 
-@media (max-width: 700px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 8px;
-  }
-  .logo {
-    margin-left: 10px;
-    font-size: 22px;
-  }
-  .navbarlien {
-    flex-direction: column;
-    gap: 10px;
-    margin-right: 0;
-    margin-top: 8px;
-  }
-  .search-container {
-    max-width: 100%;
-    margin: 8px 0;
-  }
-  .cards-container {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .produitcard {
-    width: 98vw;
-    min-width: 0;
-    margin: 12px auto;
-  }
-  .section_image {
-    min-height: 320px;
-  }
-  .section_image .overlay-text {
-    font-size: 1rem;
-    height: 180px;
-    padding: 0 8px;
-  }
-  .footer-containe {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    min-width: 0;
-    padding: 0 8px;
-  }
-  .footer-section-about, .categorie, .footer-section-lien, .social {
-    min-width: 0;
-    flex: 1 1 100%;
-  }
-  .footernewle input[type="email"] {
-    width: 98%;
-    margin-left: 0;
-    max-width: 100%;
-  }
-}
   transition: text-shadow 0.3s, color 0.3s, transform 0.3s;
 
 .section_image .overlay-text h1:hover, .section_image .overlay-text p:hover {
@@ -566,4 +496,75 @@ button:hover {
   max-width: 1200px;
   margin: 0 auto 40px auto;
   padding: 0 16px;
+}
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .section_image .overlay-text {
+    font-size: 1.1rem;
+    height: 320px;
+  }
+  .footer-containe {
+    flex-wrap: wrap;
+    min-width: 0;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 8px;
+  }
+  .logo {
+    margin-left: 10px;
+    font-size: 22px;
+  }
+  .navbarlien {
+    flex-direction: column;
+    gap: 10px;
+    margin-right: 0;
+    margin-top: 8px;
+  }
+  .search-container {
+    max-width: 100%;
+    margin: 8px 0;
+  }
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .produitcard {
+    width: 98vw;
+    min-width: 0;
+    margin: 12px auto;
+  }
+  .section_image {
+    min-height: 320px;
+  }
+  .section_image .overlay-text {
+    font-size: 1rem;
+    height: 180px;
+    padding: 0 8px;
+  }
+  .footer-containe {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    min-width: 0;
+    padding: 0 8px;
+  }
+  .footer-section-about, .categorie, .footer-section-lien, .social {
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+  .footernewle input[type="email"] {
+    width: 98%;
+    margin-left: 0;
+    max-width: 100%;
+  }
 }
