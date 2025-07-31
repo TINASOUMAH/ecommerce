@@ -1,157 +1,90 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Votre Panier</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
-    <style>
-        body {
-            background: #f8fafc;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .cart-page-container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            background: linear-gradient(120deg, #e0f7fa 0%, #fff 100%);
-        }
-        .cart-box {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-            padding: 40px 32px 32px 32px;
-            min-width: 340px;
-            max-width: 95vw;
-            width: 100%;
-            margin-top: 40px;
-        }
-        .cart-box h2 {
-            margin-bottom: 18px;
-            color: #065f46;
-            text-align: center;
-        }
-        .cart-items {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-        .cart-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
-        }
-        .cart-item img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .cart-item-info {
-            flex: 1;
-        }
-        .cart-item-title {
-            font-weight: bold;
-            color: #065f46;
-        }
-        .cart-item-price {
-            color: #009688;
-            font-size: 1rem;
-        }
-        .remove-cart-item {
-            background: #e53935;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            padding: 8px 14px;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        .remove-cart-item:hover {
-            background: #b71c1c;
-        }
-        .cart-total {
-            margin-top: 18px;
-            font-weight: bold;
-            color: #222;
-            text-align: right;
-        }
-        .empty-cart {
-            text-align: center;
-            color: #888;
-            margin: 30px 0;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 18px;
-            color: #065f46;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Panier</title>
+  <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8fafc; margin: 0; padding: 0; }
+    .container { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); padding: 32px 18px; }
+    h1 { color: #065f46; text-align: center; margin-bottom: 32px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    th, td { padding: 12px 8px; text-align: center; }
+    th { background: #065f46; color: #fff; font-weight: 600; }
+    tr { border-bottom: 1px solid #e0e0e0; }
+    img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; }
+    .qty-btn { background: #065f46; color: #fff; border: none; border-radius: 4px; width: 28px; height: 28px; font-size: 18px; cursor: pointer; margin: 0 4px; }
+    .qty-btn:active { background: #009688; }
+    .remove-btn { background: #e74c3c; color: #fff; border: none; border-radius: 4px; padding: 4px 10px; cursor: pointer; font-size: 15px; }
+    .total-row td { font-weight: bold; font-size: 1.1rem; color: #065f46; }
+    .empty { text-align: center; color: #888; font-size: 1.2rem; margin: 40px 0; }
+    @media (max-width: 700px) {
+      .container { padding: 10px 2px; }
+      th, td { padding: 7px 2px; font-size: 0.98rem; }
+      img { width: 40px; height: 40px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="cart-page-container">
-        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Continuer mes achats</a>
-        <div class="cart-box">
-            <h2>Votre panier</h2>
-            <div class="cart-items" id="cartItems"></div>
-            <div class="cart-total" id="cartTotal"></div>
-        </div>
-    </div>
-    <script>
-        // Utilisation du localStorage pour stocker le panier
-        function getCart() {
-            return JSON.parse(localStorage.getItem('cart') || '[]');
-        }
-        function setCart(cart) {
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-        function updateCartDisplay() {
-            const cart = getCart();
-            const cartItems = document.getElementById('cartItems');
-            const cartTotal = document.getElementById('cartTotal');
-            if (!cart.length) {
-                cartItems.innerHTML = '<div class="empty-cart">Votre panier est vide.</div>';
-                cartTotal.textContent = '';
-                return;
-            }
-            let total = 0;
-            cartItems.innerHTML = cart.map((item, idx) => {
-                const qty = item.qty || 1;
-                const itemTotal = item.price * qty;
-                total += itemTotal;
-                return `<div class='cart-item'>
-                    <img src='${item.img}' alt='${item.title}'>
-                    <div class='cart-item-info'>
-                        <div class='cart-item-title'>${item.title}</div>
-                        <div class='cart-item-price'>${item.price} GNF x ${qty} = <b>${itemTotal} GNF</b></div>
-                    </div>
-                    <button class='remove-cart-item' onclick='removeFromCart(${idx})'>Supprimer</button>
-                </div>`;
-            }).join('');
-            cartTotal.textContent = 'Total : ' + total + ' GNF';
-        }
-        function removeFromCart(idx) {
-            let cart = getCart();
-            cart.splice(idx, 1);
-            setCart(cart);
-            updateCartDisplay();
-        }
-        // Pour que le bouton fonctionne même après suppression
-        window.removeFromCart = removeFromCart;
-        // Affichage initial
-        updateCartDisplay();
-    </script>
+  <div class="container">
+    <h1>Mon Panier</h1>
+    <div id="cartContent"></div>
+  </div>
+  <script>
+    function getCart() {
+      return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+    function saveCart(cart) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    function renderCart() {
+      const cart = getCart();
+      const cartContent = document.getElementById('cartContent');
+      if (cart.length === 0) {
+        cartContent.innerHTML = '<div class="empty">Votre panier est vide.</div>';
+        return;
+      }
+      let total = 0;
+      let html = `<table><thead><tr><th>Produit</th><th>Nom</th><th>Prix</th><th>Quantité</th><th>Total</th><th>Action</th></tr></thead><tbody>`;
+      cart.forEach((item, idx) => {
+        const price = parseInt(item.price) || 0;
+        const qty = parseInt(item.qty) || 0;
+        const itemTotal = price * qty;
+        total += itemTotal;
+        html += `<tr>
+          <td><img src="${item.img}" alt=""></td>
+          <td>${item.title}</td>
+          <td>${price} GNF</td>
+          <td>
+            <button class="qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+            <span>${qty}</span>
+            <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+          </td>
+          <td>${itemTotal} GNF</td>
+          <td><button class="remove-btn" onclick="removeItem(${idx})">Supprimer</button></td>
+        </tr>`;
+      });
+      html += `<tr class="total-row"><td colspan="4">Total</td><td colspan="2">${total} GNF</td></tr>`;
+      html += '</tbody></table>';
+      cartContent.innerHTML = html;
+    }
+    function changeQty(idx, delta) {
+      let cart = getCart();
+      cart[idx].qty += delta;
+      if (cart[idx].qty < 1) cart[idx].qty = 1;
+      saveCart(cart);
+      renderCart();
+    }
+    function removeItem(idx) {
+      let cart = getCart();
+      cart.splice(idx, 1);
+      saveCart(cart);
+      renderCart();
+    }
+    renderCart();
+  </script>
 </body>
 </html>
+

@@ -125,3 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+//pour changer l'anne directement//
+const date=document.querySelector("#annee")
+date.textContent=new Date().getFullYear()
