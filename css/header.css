@@ -515,10 +515,23 @@ button:hover {
 }
 
 @media (max-width: 700px) {
+  
+.section_image {
+  background-image: url("../image/Black\ friday\ shopping\ background\ for\ social\ media\ \(1\).jpeg");
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  animation: hero-cool-zoom 14s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  margin-top: 200px;
+}
   .navbar {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 8px;
+   
   }
   .logo {
     margin-left: 10px;
