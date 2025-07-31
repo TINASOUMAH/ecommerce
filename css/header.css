@@ -565,8 +565,8 @@ button:hover {
     padding: 0 8px;
   }
   .footer-containe {
-    flex-direction: column;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
     min-width: 0;
     padding: 0 8px;
