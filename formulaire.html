@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Contact</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .form-page-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(120deg, #e0f7fa 0%, #fff 100%);
+        }
+        .form-box {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            padding: 40px 32px 32px 32px;
+            min-width: 340px;
+            max-width: 95vw;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-box h2 {
+            margin-bottom: 18px;
+            color: #065f46;
+        }
+        .form-box form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+        }
+        .form-box label {
+            font-weight: 500;
+            color: #222;
+        }
+        .form-box input, .form-box textarea {
+            padding: 12px 14px;
+            border-radius: 8px;
+            border: 1.5px solid #b2dfdb;
+            font-size: 1rem;
+            background: #f8fafc;
+            transition: border 0.2s;
+        }
+        .form-box input:focus, .form-box textarea:focus {
+            border: 1.5px solid #065f46;
+            outline: none;
+        }
+        .form-box button {
+            background: #065f46;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .form-box button:hover {
+            background: #009688;
+        }
+        .form-success {
+            color: #009688;
+            margin-top: 16px;
+            font-weight: 500;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-page-container">
+        <div class="form-box">
+            <h2>Contactez-nous</h2>
+            <form id="contactForm" autocomplete="off">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" required placeholder="Votre nom">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Votre email">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Votre message"></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+            <div class="form-success" id="formSuccess">Votre message a bien été envoyé !</div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('formSuccess').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('formSuccess').style.display = 'none';
+                document.getElementById('contactForm').reset();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!-- Suppression du texte inutile en haut de page -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaussures - Shopmodern</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <style>
+      .carousel-container {
+        width: 1350px;
+        margin: 40px auto;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        border-radius: 16px;
+        background: #f8fafc;
+      }
+      .carousel-track {
+        display: flex;
+        flex-wrap: nowrap;
+        transition: transform 0.5s;
+        width: max-content;
+      }
+      .produitcard {
+        min-width: 250px;
+        max-width: 250px;
+        margin: 0 10px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 10px;
+        text-align: center;
+        flex-shrink: 0;
+      }
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #333;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+        cursor: pointer;
+        z-index: 2;
+        opacity: 0.85;
+      }
+      .carousel-btn.left { left: 0; }
+      .carousel-btn.right { right: 0; }
+      .cart-bounce {
+        animation: cart-bounce 0.5s;
+      }
+      @keyframes cart-bounce {
+        0% { transform: scale(1); }
+        30% { transform: scale(1.3); }
+        60% { transform: scale(0.9); }
+        100% { transform: scale(1); }
+      }
+      .titre{
+        text-align: center;
+        font-size: 50px;
+      }
+    </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">Shop<span style="color: black;">modern</span></h1>
+    <ul class="navbarlien">
+        <li><a href="index.html">Accueil</a></li>
+        <li class="has-sous-menu">
+          <a href="#">Catégories</a>
+          <ul class="sous_menu">
+            <li><a href="vetement.html">Vêtement</a></li>
+            <li><a href="accessoire.html">Accessoire</a></li>
+            <li><a href="chaussure.html">Chaussure</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="search-container">
+      <input type="search" id="searchBar" placeholder="Rechercher...">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="panier">
+        <a href="panier.html" id="openCart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="Connexion">
+            <a href="#" id="openLogin"><i class="fas fa-user icon-connexion"></i></a>
+        </div>
+    <!-- Modal Connexion -->
+    <div id="loginModal" class="login-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,0.4);align-items:center;justify-content:center;">
+      <div class="login-modal-content" style="background:#fff;border-radius:12px;padding:32px 24px 24px 24px;min-width:320px;max-width:95vw;box-shadow:0 8px 32px rgba(0,0,0,0.18);position:relative;display:flex;flex-direction:column;align-items:center;">
+        <span class="close-login" id="closeLogin" style="position:absolute;top:12px;right:18px;font-size:2rem;color:#065f46;cursor:pointer;">&times;</span>
+        <h2>Connexion</h2>
+        <form id="loginForm" autocomplete="off" style="display:flex;flex-direction:column;gap:12px;width:100%;margin-top:10px;">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="loginEmail" required placeholder="Votre email" style="padding:10px 12px;border-radius:8px;border:1.5px solid #b2dfdb;font-size:1rem;background:#f8fafc;">
+          <label for="loginPassword">Mot de passe</label>
+          <input type="password" id="loginPassword" name="loginPassword" required placeholder="Votre mot de passe" style="padding:10px 12px;border-radius:8px;border:1.5px solid #b2dfdb;font-size:1rem;background:#f8fafc;">
+          <button type="submit" style="background:#065f46;color:#fff;border:none;border-radius:8px;padding:12px 0;font-size:1.1rem;font-weight:bold;margin-top:10px;cursor:pointer;transition:background 0.2s;">Se connecter</button>
+        </form>
+        <div id="loginMessage" style="color:#009688;margin-top:10px;display:none;">Connexion réussie !</div>
+      </div>
+    </div>
+  </header>
+  <div class="titre">
+  <h3 style="color: #065f46;">Bienvenue dans l'univers de la chaussure</h3></div>
+  <h2 style="text-align:center; margin-top:30px;">Chaussures hommes</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="moveCarouselHomme(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-track" id="carouselTrackHomme">
+      <div class="produitcard">
+        <img src="image/chaussurehomme/Chaussures de sport pour hommes 2025 Nouvelles… (1).jpeg" alt="Homme 1" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Basket blanche</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/1c6736f9-9043-44bb-9588-64411ddd89ed.jpeg" alt="Homme 2" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Sandale été</h3>
+          <p class="prix">120GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/25a0a6ac-9c48-485a-80dd-bc5edde4abf7.jpeg" alt="Homme 3" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bottine cuir</h3>
+          <p class="prix">200GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/3a43ac49-5dec-4496-a65d-c846d7bfbdba.jpeg" alt="Homme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/8e469607-b170-4109-b21c-99418e5f3094.jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/9ddd6b82-c83b-4890-b599-f892af353260.jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/Canvas Shoes Men Summer Classic Loafers Men Casual….jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/Chaussure montante de travail en cuir MANITOU pour….jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/chaussure homme basket homme Chaussures de course….jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/d26762f5-e70b-46ad-908d-11dfbf1831f9.jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/f77fbe02-d4cf-474a-bd34-61fc80ce3882.jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/chaussurehomme/Swarovski Nike Air Max 270 Shoes Blinged Out With….jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right" onclick="moveCarouselHomme(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <h2 style="text-align:center; margin-top:30px;">Chaussures femmes</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="moveCarouselFemme(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-track" id="carouselTrackFemme">
+      <div class="produitcard">
+        <img src="image/imagechaussure/1e75e62f-d8e6-4e59-a701-88e86a2ea9ce.jpeg" alt="Femme 1" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 1</h3>
+          <p class="prix">110GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagechaussure/56dc49d7-9ced-42eb-9136-1bb6353402ec.jpeg" alt="Femme 2" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 2</h3>
+          <p class="prix">130GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagechaussure/57d66f21-9be3-4c1c-aad6-29b978519c10.jpeg" alt="Femme 3" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 3</h3>
+          <p class="prix">140GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagechaussure/7a46461b-cb94-49a4-9ce3-81e668553efc.jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 4</h3>
+          <p class="prix">120GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagechaussure/2b7f8221-e5f2-4ed1-9846-3447ff6ebf4c.jpeg" alt="Femme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 5</h3>
+          <p class="prix">125GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+         <div class="produitcard">
+        <img src="image/imagechaussure/41dd725e-e996-463b-ad61-802d41f24922.jpeg" alt="Femme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 5</h3>
+          <p class="prix">125GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+         <div class="produitcard">
+        <img src="image/imagechaussure/soyez sexy et stylé le jour de la fête de l'amour… (1).jpeg" alt="Femme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 5</h3>
+          <p class="prix">125GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+       <div class="produitcard">
+        <img src="image/imagechaussure/_View this item on WhatsApp….jpeg" alt="Femme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 5</h3>
+          <p class="prix">125GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+       <div class="produitcard">
+        <img src="image/imagechaussure/e9336ad9-e2d0-443c-9c57-97afd883d224.jpeg" alt="Femme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Chaussure femme 5</h3>
+          <p class="prix">125GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right" onclick="moveCarouselFemme(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+
+  <div class="footers">
+      <div class="footernewle">
+        <h3>Restez informé de notre nouveauté</h3>
+        <p>Inscrivez vous à notre newsletter et recevez en excusivité nos offre spéciales et les derrière tendances</p>
+        <form id="Newsletterfooter">
+          <input type="email" placeholder="Votre adresse  email" required>
+          <button type="submit" id="bnt">S'inscrire</button>
+        </form>
+      </div>
+      <div class="footer-containe">
+        <div class="footer-section-about">
+          <h2 class="logo">Shopmodern</h2>
+          <p>Votre marketplace de confiance  pour<br> découvrir les meilleurs produits de qualité</p>
+        </div>
+        <div class="categorie">
+          <h4>Categorie</h4>
+          <ul>
+            <li>Vêtement</li>
+            <li>Accessoire</li>
+            <li>Chaussure</li>
+          </ul>
+        </div>
+        <div class="footer-section-lien">
+        <ul>
+          <h3>Navigation</h3>
+          <li><a href="#" id="openLogin"><i class="fas fa-user user-icon"></i> Connexion</a></li>
+        </ul>
+        </div>
+          <div class="social">
+            <h3>Suivez-nous</h3>
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+    </div>
+       <div class="botton-bar">
+              <p>&copy; 2025 shopmoderne tous droit reserver</p>
+            </div>
+       </div>
+  <script>
+    // Carousel Homme
+    let posH = 0;
+    const trackH = document.getElementById('carouselTrackHomme');
+    const totalH = trackH.children.length;
+    function getVisibleH() {
+      return Math.floor(document.getElementById('carouselTrackHomme').parentElement.offsetWidth / 270);
+    }
+    function moveCarouselHomme(dir) {
+      const visible = getVisibleH();
+      posH += dir;
+      if (posH < 0) posH = 0;
+      if (posH > totalH - visible) posH = Math.max(0, totalH - visible);
+      trackH.style.transform = `translateX(${-posH * 270}px)`;
+    }
+    window.addEventListener('resize', () => {
+      posH = 0;
+      trackH.style.transform = `translateX(0px)`;
+      posF = 0;
+      trackF.style.transform = `translateX(0px)`;
+    });
+    // Carousel Femme
+    let posF = 0;
+    const trackF = document.getElementById('carouselTrackFemme');
+    const totalF = trackF.children.length;
+    function getVisibleF() {
+      return Math.floor(document.getElementById('carouselTrackFemme').parentElement.offsetWidth / 270);
+    }
+    function moveCarouselFemme(dir) {
+      const visible = getVisibleF();
+      posF += dir;
+      if (posF < 0) posF = 0;
+      if (posF > totalF - visible) posF = Math.max(0, totalF - visible);
+      trackF.style.transform = `translateX(${-posF * 270}px)`;
+    }
+    // Modal Connexion JS
+    document.addEventListener('DOMContentLoaded', function() {
+      const openLogin = document.getElementById('openLogin');
+      const loginModal = document.getElementById('loginModal');
+      const closeLogin = document.getElementById('closeLogin');
+      if (openLogin && loginModal && closeLogin) {
+        openLogin.addEventListener('click', function(e) {
+          e.preventDefault();
+          loginModal.style.display = 'flex';
+        });
+        closeLogin.addEventListener('click', function() {
+          loginModal.style.display = 'none';
+          document.getElementById('loginMessage').style.display = 'none';
+        });
+        loginModal.addEventListener('click', function(e) {
+          if (e.target === loginModal) loginModal.style.display = 'none';
+        });
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          document.getElementById('loginMessage').style.display = 'block';
+          setTimeout(function() {
+            loginModal.style.display = 'none';
+            document.getElementById('loginMessage').style.display = 'none';
+            document.getElementById('loginForm').reset();
+          }, 1800);
+        });
+      }
+    });
+    // Ajout au panier avec animation
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = btn.closest('.produitcard');
+        const img = card.querySelector('img').getAttribute('src');
+        const title = card.querySelector('h3').textContent;
+        const price = parseInt(card.querySelector('.prix').textContent);
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        let found = cart.find(item => item.title === title && item.price === price && item.img === img);
+        if (found) {
+          found.qty = (found.qty || 1) + 1;
+        } else {
+          cart.push({ img, title, price, qty: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        const panierIcon = document.getElementById('openCart')?.querySelector('i');
+        if (panierIcon) {
+          panierIcon.classList.add('cart-bounce');
+          setTimeout(() => panierIcon.classList.remove('cart-bounce'), 500);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

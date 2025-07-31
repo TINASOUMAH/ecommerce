@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <style>
+      .cart-bounce {
+        animation: cart-bounce 0.5s;
+      }
+      .search-container {
+        margin: 10px 0;
+        width: 100%;
+        max-width: 350px;
+        position: relative;
+      }
+      .search-container input {
+        width: 100%;
+        min-width: 0;
+      }
+      .panier {
+        margin-right: 0;
+        gap: 10px;
+      }
+      /* .cards-container, .produitcard et .produitcard img styles sont gérés dans le fichier CSS principal */
+      /* .section_image styles sont gérés dans le fichier CSS principal */
+      .overlay-text {
+        text-align: center;
+        padding: 0 10vw;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .footers {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .footer-containe {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 24px;
+        justify-content: center;
+        padding: 0 2vw;
+        overflow-x: auto;
+        padding: 0 2vw;
+      }
+      .footer-section-about, .categorie, .footer-section-lien, .social {
+        min-width: 180px;
+        flex: 1 1 180px;
+      }
+      .footernewle input[type="email"] {
+        margin-left: 0;
+        width: 90%;
+        max-width: 350px;
+        display: block;
+        margin: 20px auto 0 auto;
+      }
+      .footernewle button {
+        display: block;
+        margin: 10px auto 0 auto;
+      }
+    </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">Shop<span style="color: black;">modern</span></h1>
+    <ul class="navbarlien">
+        <li><a href="index.html">Accueil</a></li>
+        <li class="has-sous-menu">
+          <a href="#">Catégories</a>
+          <ul class="sous_menu">
+            <li><a href="vetement.html">Vêtement</a></li>
+            <li><a href="accessoire.html">Accessoire</a></li>
+            <li><a href="chaussure.html">Chaussure</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="search-container">
+      <input type="search" id="searchBar" placeholder="Rechercher...">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="panier">
+        <a href="panier.html" id="openCart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="Connexion">
+            <a href="#" id="openLogin"><i class="fas fa-user icon-connexion"></i></a>
+        </div>
+  <!-- Modal Connexion -->
+  <div id="loginModal" style="display:none;position:fixed;z-index:2000;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);justify-content:center;align-items:center;">
+    <div style="background:white;padding:32px 24px 24px 24px;border-radius:12px;max-width:350px;width:90%;margin:auto;position:relative;box-shadow:0 8px 32px rgba(0,0,0,0.18);">
+      <button id="closeLoginModal" style="position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:#065f46;">&times;</button>
+      <h2 style="text-align:center;color:#065f46;margin-bottom:18px;">Connexion</h2>
+      <form>
+        <input type="text" id="loginUsername" placeholder="Nom d'utilisateur" style="width:100%;padding:10px;margin-bottom:12px;border-radius:6px;border:1px solid #ccc;">
+        <input type="password" id="loginPassword" placeholder="Mot de passe" style="width:100%;padding:10px;margin-bottom:18px;border-radius:6px;border:1px solid #ccc;">
+        <button type="submit" id="loginSubmitBtn" style="width:100%;background:#065f46;color:white;padding:10px;border:none;border-radius:6px;font-weight:bold;">Se connecter</button>
+      </form>
+    </div>
+  </div>
+    </div>
+  </header>
+  <div class="section_image">
+    <div class="overlay-text">
+      <h1>Bienvenue sur shopmodern</h1>
+      <p>Découvrez notre sélection de produits de qualité avec un design moderne et une expérience d'achat exceptionnelle.</p>
+    </div>
+  </div>
+
+  <h2 class="titr">PRODUIT VEDETTE</h2>
+  <div class="cards-container">
+    <!-- Cartes produits ici (copie/colle les cards d'origine ici) -->
+    <div class="produitcard">
+      <img src="image/image card/f039e802-74b7-4afd-b7bd-7a650c074ef2.jpeg" alt="Produit1">
+      <div class="card-content">
+        <h3>Robe</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/340ff816-9205-4ab1-aa69-37f6d7817b74.jpeg" alt="">
+      <div class="card-content">
+        <h3>chemise</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/8f21c7d3-3765-46bb-a125-e3db2917190b.jpeg" alt="">
+      <div class="card-content">
+        <h3>chaussure</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/fcc99873-2a4d-40d2-93c6-8b87c25bab86.jpeg" alt="">
+      <div class="card-content">
+        <h3>sac à main</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/Lunettes de vue œil de chat avec monture en métal….jpeg" alt="">
+      <div class="card-content">
+        <h3>lunette</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/c59f268a-e886-4491-bda9-4237e0734c1c.jpeg" alt="">
+      <div class="card-content">
+        <h3>chaussure</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/7a2fc615-307a-4bb8-a093-b115f7e483f8.jpeg" alt="">
+      <div class="card-content">
+        <h3>Montre</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/103819cb-a6a8-4865-a096-744b41461188.jpeg" alt="">
+      <div class="card-content">
+        <h3>Produit1</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/4a7d9c38-ad77-4206-901f-a53fbee61ddc.jpeg" alt="">
+      <div class="card-content">
+        <h3>Produit1</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/Top Seller for Michael Kors Jet Set Travel Extra… (1).jpeg" alt="">
+      <div class="card-content">
+        <h3>Produit1</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/chaussure homme basket homme Chaussures de course… (1).jpeg" alt="">
+      <div class="card-content">
+        <h3>Produit1</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+    <div class="produitcard">
+      <img src="image/image card/036eac1e-1d77-4cf6-b5fb-7dc45afacdb4.jpeg" alt="">
+      <div class="card-content">
+        <h3>Produit1</h3>
+        <p class="prix">100GNF</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="fas fa-star grey"></i>
+        </div>
+        <button class="add-to-cart">ajouter au panier</button>
+      </div>
+    </div>
+  </div>
+    
+
+    <div class="footers">
+      <div class="footernewle">
+        <h3>Restez informé de notre nouveauté</h3>
+        <p>Inscrivez vous à notre newsletter et recevez en excusivité nos offre spéciales et les derrière tendances</p>
+        <form id="Newsletterfooter">
+          <input type="email" placeholder="Votre adresse  email" required>
+          <button type="submit" id="bnt">S'inscrire</button>
+        </form>
+
+      </div>
+      <div class="footer-containe">
+        <div class="footer-section-about">
+          <h2 class="logo">Shopmodern</h2>
+          <p>Votre marketplace de confiance  pour<br> découvrir les meilleurs produits de qualité</p>
+
+        </div>
+        <div class="categorie">
+          <h4>Categorie</h4>
+          <ul>
+            <li>Vêtement</li>
+            <li>Accessoire</li>
+            <li>Chaussure</li>
+            
+
+          </ul>
+
+        </div>
+        <div class="footer-section-lien">
+        <ul>
+          <h3>Navigation</h3>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Catalogue</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Connexion</a></li>
+        </ul>
+
+
+        </div>
+         
+          <div class="social">
+            <h3>Suivez-nous</h3>
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-twitter"></i></a>
+
+          </div>
+         
+    </div>
+
+       <div class="botton-bar">
+              <p>&copy; 2025 shopmoderne tous droit reserver</p>
+            </div>
+       </div>
+       
+      
+    
+</body>
+<script src="index.js"></script>
+<script>
+// Affichage du formulaire de connexion (modal)
+document.addEventListener('DOMContentLoaded', function() {
+  const openLogin = document.getElementById('openLogin');
+  const loginModal = document.getElementById('loginModal');
+  const closeLogin = document.getElementById('closeLogin');
+  if (openLogin && loginModal && closeLogin) {
+    openLogin.addEventListener('click', function(e) {
+      e.preventDefault();
+      loginModal.style.display = 'flex';
+    });
+    closeLogin.addEventListener('click', function() {
+      loginModal.style.display = 'none';
+      document.getElementById('loginMessage').style.display = 'none';
+    });
+    loginModal.addEventListener('click', function(e) {
+      if (e.target === loginModal) loginModal.style.display = 'none';
+    });
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Stocker email et mot de passe dans localStorage
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userPassword', password);
+      document.getElementById('loginMessage').style.display = 'block';
+      setTimeout(function() {
+        loginModal.style.display = 'none';
+        document.getElementById('loginMessage').style.display = 'none';
+        document.getElementById('loginForm').reset();
+      }, 1800);
+    });
+  }
+
+
+});
+</script>
+</body>
+</html>

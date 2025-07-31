@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessoires - Shopmodern</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <style>
+      .carousel-container {
+        width: 1350px;
+        margin: 40px auto;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        border-radius: 16px;
+        background: #f8fafc;
+      }
+      .carousel-track {
+        display: flex;
+        flex-wrap: nowrap;
+        transition: transform 0.5s;
+        width: max-content;
+      }
+       
+      .produitcard {
+        
+        min-width:250px;
+        max-width: 250px;
+        margin: 0 10px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 10px;
+        text-align: center;
+        flex-shrink: 0;
+        
+      }
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #333;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .carousel-btn.left { left: 0; }
+      .carousel-btn.right { right: 0; }
+      .cart-bounce {
+        animation: cart-bounce 0.5s;
+      }
+      @keyframes cart-bounce {
+        0% { transform: scale(1); }
+        30% { transform: scale(1.3); }
+        60% { transform: scale(0.9); }
+        100% { transform: scale(1); }
+      }
+    </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">Shop<span style="color: black;">modern</span></h1>
+
+
+    <ul class="navbarlien">
+        <li><a href="index.html">Accueil</a></li>
+        <li class="has-sous-menu">
+          <a href="#">Catégories</a>
+          <ul class="sous_menu">
+            <li><a href="vetement.html">Vêtement</a></li>
+            <li><a href="accessoire.html">Accessoire</a></li>
+            <li><a href="chaussure.html">Chaussure</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="search-container">
+      <input type="search" id="searchBar" placeholder="Rechercher...">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="panier">
+        <a href="panier.html" id="openCart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="Connexion">
+            <a href="#" id="openLogin"><i class="fas fa-user icon-connexion"></i></a>
+        </div>
+    <!-- ...menu identique à index.html... -->
+    <!-- Modal Connexion -->
+    <div id="loginModal" class="login-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,0.4);align-items:center;justify-content:center;">
+      <div class="login-modal-content" style="background:#fff;border-radius:12px;padding:32px 24px 24px 24px;min-width:320px;max-width:95vw;box-shadow:0 8px 32px rgba(0,0,0,0.18);position:relative;display:flex;flex-direction:column;align-items:center;">
+        <span class="close-login" id="closeLogin" style="position:absolute;top:12px;right:18px;font-size:2rem;color:#065f46;cursor:pointer;">&times;</span>
+        <h2>Connexion</h2>
+        <form id="loginForm" autocomplete="off" style="display:flex;flex-direction:column;gap:12px;width:100%;margin-top:10px;">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="loginEmail" required placeholder="Votre email" style="padding:10px 12px;border-radius:8px;border:1.5px solid #b2dfdb;font-size:1rem;background:#f8fafc;">
+          <label for="loginPassword">Mot de passe</label>
+          <input type="password" id="loginPassword" name="loginPassword" required placeholder="Votre mot de passe" style="padding:10px 12px;border-radius:8px;border:1.5px solid #b2dfdb;font-size:1rem;background:#f8fafc;">
+          <button type="submit" style="background:#065f46;color:#fff;border:none;border-radius:8px;padding:12px 0;font-size:1.1rem;font-weight:bold;margin-top:10px;cursor:pointer;transition:background 0.2s;">Se connecter</button>
+        </form>
+        <div id="loginMessage" style="color:#009688;margin-top:10px;display:none;">Connexion réussie !</div>
+      </div>
+    </div>
+  </header>
+
+  <h2 style="text-align:center; margin-top:30px;">Sacs à main</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="moveCarouselSac(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-track" id="carouselTrackSac">
+      <div class="produitcard">
+        <img src="image/image sac/a465b9fd-8038-41c9-b45c-f474604c2857.jpeg" alt="Sac 1" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Sac à main femme</h3>
+          <p class="prix">200GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/a69052b4-0b30-47e0-b4f0-f9287dbebd43.jpeg" alt="Sac 2" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Sac scolaire enfant</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/a6a59a7a-a867-4058-93f7-ef0784da29be.jpeg" alt="Bijou 1" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bijoux dorés</h3>
+          <p class="prix">120GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/bbb719ec-10b6-43a6-859b-746e0bbb8104.jpeg" alt="Bijou 2" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/d465d8a8-1edd-451a-a664-1e6549b4cddd.jpeg" alt="Bijou 3" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/Dê uma olhada em 1-3-6 mochila escolar infantil à….jpeg" alt="Bijou 4" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/Silhouette _ Sac à MainRéférence….jpeg" alt="Bijou 5" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/New In_ Chloe Drew Bag in Grey - Size Small….jpeg" alt="Bijou 6" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/On craque totallement sur ce sac à main Lancaster….jpeg" alt="Bijou 7" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/Sac À Bandoulière De Grande Capacité Pour Dames….jpeg" alt="Bijou 8" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/Sac à main à la mode_ Le sac à main présente un….jpeg" alt="Bijou 9" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/YAMTION Sac à Dos pour Femme, Sac d'École pour….jpeg" alt="Bijou 10" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/African Print Tote Bag_African Fashion Tote Bags… (1).jpeg" alt="Bijou 11" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image sac/Dê uma olhada em 1-3-6 mochila escolar infantil à….jpeg" alt="Bijou 12" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bracelet femme</h3>
+          <p class="prix">80GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right" onclick="moveCarouselSac(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <h2 style="text-align:center; margin-top:30px;">Bijoux</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="moveCarouselMontre(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-track" id="carouselTrackMontre">
+      <div class="produitcard">
+        <img src="image/image bijoux/1 pièce Bracelet de perles synthétiques en….jpeg" alt="Montre 1" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre élégante</h3>
+          <p class="prix">250GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image card/Découvrez l’élégance de trois bijoux uniques _ un….jpeg" alt="Montre 2" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/53ea3144-541d-493d-b829-5c3f0f2e2ed2.jpeg" alt="Montre 3" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/57f207fb-b69f-4f9d-b81b-46ddd773ee9f.jpeg" alt="Montre 4" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/7074bb09-1a89-4104-b50a-9475a7a54ddf.jpeg" alt="Montre 5" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/7a2fc615-307a-4bb8-a093-b115f7e483f8.jpeg" alt="Montre 6" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/8bee8457-3540-420f-8597-e4083a55243c.jpeg" alt="Montre 7" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/b32fb448-db70-49c3-bf6c-eb513f8ec940.jpeg" alt="Montre 8" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/1 set (4 pièces) Collier pendentif fleur mode….jpeg" alt="Montre 9" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image card/Découvrez l’élégance de trois bijoux uniques _ un….jpeg" alt="Montre 10" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/High Quality 2 Layers Artificial Coral Bead….jpeg" alt="Montre 11" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/Découvrez l’élégance de trois bijoux uniques _ un….jpeg" alt="Montre 12" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/Montre connectée de sport pour hommes et femmes….jpeg" alt="Montre 13" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre enfant</h3>
+          <p class="prix">100GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image bijoux/Sporty      Embellished   Smart Watches & Accs.jpeg" alt="Montre 14" style="width:100%;height:200px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Montre sport</h3>
+          <p class="prix">180GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right" onclick="moveCarouselMontre(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <div class="footers">
+      <div class="footernewle">
+        <h3>Restez informé de notre nouveauté</h3>
+        <p>Inscrivez vous à notre newsletter et recevez en excusivité nos offre spéciales et les derrière tendances</p>
+        <form id="Newsletterfooter">
+          <input type="email" placeholder="Votre adresse  email" required>
+          <button type="submit" id="bnt">S'inscrire</button>
+        </form>
+      </div>
+      <div class="footer-containe">
+        <div class="footer-section-about">
+          <h2 class="logo">Shopmodern</h2>
+          <p>Votre marketplace de confiance  pour<br> découvrir les meilleurs produits de qualité</p>
+        </div>
+        <div class="categorie">
+          <h4>Categorie</h4>
+          <ul>
+            <li>Vêtement</li>
+            <li>Accessoire</li>
+            <li>Chaussure</li>
+          </ul>
+        </div>
+        <div class="footer-section-lien">
+        <ul>
+          <h3>Navigation</h3>
+          <li><a href="#" id="openLogin"><i class="fas fa-user user-icon"></i> Connexion</a></li>
+        </ul>
+        </div>
+          <div class="social">
+            <h3>Suivez-nous</h3>
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+    </div>
+       <div class="botton-bar">
+              <p>&copy; 2025 shopmoderne tous droit reserver</p>
+            </div>
+       </div>
+  <script>
+    // Carousel Sac/Bijoux
+    let posS = 0;
+    const trackS = document.getElementById('carouselTrackSac');
+    const totalS = trackS.children.length;
+    function getVisibleS() {
+      return Math.floor(document.getElementById('carouselTrackSac').parentElement.offsetWidth / 270);
+    }
+    function moveCarouselSac(dir) {
+      const visible = getVisibleS();
+      posS += dir;
+      if (posS < 0) posS = 0;
+      if (posS > totalS - visible) posS = Math.max(0, totalS - visible);
+      trackS.style.transform = `translateX(${-posS * 270}px)`;
+    }
+    // Carousel Montre
+    let posM = 0;
+    const trackM = document.getElementById('carouselTrackMontre');
+    const totalM = trackM.children.length;
+    function getVisibleM() {
+      return Math.floor(document.getElementById('carouselTrackMontre').parentElement.offsetWidth / 270);
+    }
+    function moveCarouselMontre(dir) {
+      const visible = getVisibleM();
+      posM += dir;
+      if (posM < 0) posM = 0;
+      if (posM > totalM - visible) posM = Math.max(0, totalM - visible);
+      trackM.style.transform = `translateX(${-posM * 270}px)`;
+    }
+    window.addEventListener('resize', () => {
+      posS = 0;
+      trackS.style.transform = `translateX(0px)`;
+      posM = 0;
+      trackM.style.transform = `translateX(0px)`;
+    });
+    // Modal Connexion JS
+    document.addEventListener('DOMContentLoaded', function() {
+      const openLogin = document.getElementById('openLogin');
+      const loginModal = document.getElementById('loginModal');
+      const closeLogin = document.getElementById('closeLogin');
+      if (openLogin && loginModal && closeLogin) {
+        openLogin.addEventListener('click', function(e) {
+          e.preventDefault();
+          loginModal.style.display = 'flex';
+        });
+        closeLogin.addEventListener('click', function() {
+          loginModal.style.display = 'none';
+          document.getElementById('loginMessage').style.display = 'none';
+        });
+        loginModal.addEventListener('click', function(e) {
+          if (e.target === loginModal) loginModal.style.display = 'none';
+        });
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          document.getElementById('loginMessage').style.display = 'block';
+          setTimeout(function() {
+            loginModal.style.display = 'none';
+            document.getElementById('loginMessage').style.display = 'none';
+            document.getElementById('loginForm').reset();
+          }, 1800);
+        });
+      }
+    });
+    // Ajout au panier avec animation
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = btn.closest('.produitcard');
+        const img = card.querySelector('img').getAttribute('src');
+        const title = card.querySelector('h3').textContent;
+        const price = parseInt(card.querySelector('.prix').textContent);
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        let found = cart.find(item => item.title === title && item.price === price && item.img === img);
+        if (found) {
+          found.qty = (found.qty || 1) + 1;
+        } else {
+          cart.push({ img, title, price, qty: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        const panierIcon = document.getElementById('openCart')?.querySelector('i');
+        if (panierIcon) {
+          panierIcon.classList.add('cart-bounce');
+          setTimeout(() => panierIcon.classList.remove('cart-bounce'), 500);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

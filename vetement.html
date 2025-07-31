@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vêtements - Shopmodern</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <style>
+      .carousel-container {
+        width: 1350px;
+        margin: 40px auto;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        border-radius: 16px;
+        background: #f8fafc;
+      }
+      .carousel-track {
+        display: flex;
+        flex-wrap: nowrap;
+        transition: transform 0.5s;
+        width: max-content;
+      }
+      .produitcard {
+        min-width: 250px;
+        max-width: 250px;
+        margin: 0 10px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 10px;
+        text-align: center;
+        flex-shrink: 0;
+      }
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #333;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5em;
+        cursor: pointer;
+        z-index: 2;
+      }
+      .carousel-btn.left { left: 0; }
+      .carousel-btn.right { right: 0; }
+      .cart-bounce {
+        animation: cart-bounce 0.5s;
+      }
+      @keyframes cart-bounce {
+        0% { transform: scale(1); }
+        30% { transform: scale(1.3); }
+        60% { transform: scale(0.9); }
+        100% { transform: scale(1); }
+      }
+
+      .titre{
+        text-align: center;
+        font-size: 50px;
+      }
+    </style>
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">Shop<span style="color: black;">modern</span></h1>
+ <ul class="navbarlien">
+        <li><a href="index.html">Accueil</a></li>
+        <li class="has-sous-menu">
+          <a href="#">Catégories</a>
+          <ul class="sous_menu">
+            <li><a href="vetement.html">Vêtement</a></li>
+            <li><a href="accessoire.html">Accessoire</a></li>
+            <li><a href="chaussure.html">Chaussure</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="search-container">
+      <input type="search" id="searchBar" placeholder="Rechercher...">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </div>
+    <div class="panier">
+        <a href="panier.html" id="openCart"><i class="fas fa-shopping-cart"></i></a>
+        <div class="Connexion">
+            <a href="#" id="openLogin"><i class="fas fa-user icon-connexion"></i></a>
+        </div>
+
+    <!-- ...menu identique à index.html... -->
+    <!-- Modal Connexion -->
+    <div id="loginModal" class="login-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,0.4);align-items:center;justify-content:center;">
+      <div class="login-modal-content" style="background:#fff;border-radius:12px;padding:32px 24px 24px 24px;min-width:320px;max-width:95vw;box-shadow:0 8px 32px rgba(0,0,0,0.18);position:relative;display:flex;flex-direction:column;align-items:center;">
+        <span class="close-login" id="closeLogin" style="position:absolute;top:12px;right:18px;font-size:2rem;color:#065f46;cursor:pointer;">&times;</span>
+        <h2>Connexion</h2>
+        <form id="loginForm" autocomplete="off" style="display:flex;flex-direction:column;gap:12px;width:100%;margin-top:10px;">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" name="loginEmail" required placeholder="Votre email" style="padding:10px 12px;border-radius:8px;border:1.5px solid #b2dfdb;font-size:1rem;background:#f8fafc;">
+          <label for="loginPassword">Mot de passe</label>
+          <input type="password" id="loginPassword" name="loginPassword" required placeholder="Votre mot de passe" style="padding:10px 12px;border-radius:8px;border:1.5px solid #b2dfdb;font-size:1rem;background:#f8fafc;">
+          <button type="submit" style="background:#065f46;color:#fff;border:none;border-radius:8px;padding:12px 0;font-size:1.1rem;font-weight:bold;margin-top:10px;cursor:pointer;transition:background 0.2s;">Se connecter</button>
+        </form>
+        <div id="loginMessage" style="color:#009688;margin-top:10px;display:none;">Connexion réussie !</div>
+      </div>
+    </div>
+  </header>
+  <div class="titre">
+  <h3 style="color: #065f46;">Bienvenue dans l'univers de la mode</h3></div>
+  <h2 style="text-align:center; margin-top:30px;">Vêtements hommes</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="moveCarouselHomme(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-track" id="carouselTrackHomme">
+      <div class="produitcard">
+        <img src="image/imagehomme/072a1a1e-a9be-4602-98e7-02ebe786b7ee.jpeg" alt="Homme 1" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Costume homme</h3>
+          <p class="prix">120GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/2024 nouveau été hommes vacances ensemble….jpeg" alt="Homme 2" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Jean homme</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/340ff816-9205-4ab1-aa69-37f6d7817b74.jpeg" alt="Homme 3" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>T-shirt homme</h3>
+          <p class="prix">60GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/3a7c60ea-1b2d-41a2-977d-53ee7bcff34a.jpeg" alt="Homme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Veste homme</h3>
+          <p class="prix">200GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/4b56d9e9-3811-49bd-84c3-43c4ee3d621b.jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Pull homme</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/Manfinity Homme Men Expression Print Kangaroo….jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Pull homme</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/Chemise à manches longues pour homme décontractée….jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Pull homme</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/fashion stuff.jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Pull homme</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/Manfinity Homme Men Expression Print Kangaroo….jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Pull homme</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagehomme/Ensemble chemise à manches courtes et Short de….jpeg" alt="Homme 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Pull homme</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right" onclick="moveCarouselHomme(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <h2 style="text-align:center; margin-top:30px;">Vêtements femmes</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="moveCarouselFemme(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-track" id="carouselTrackFemme">
+      <div class="produitcard">
+        <img src="image/imagefemme/2 pièces Ensemble de femme élégante, veste et… (1).jpeg" alt="Femme 1" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Basket blanche</h3>
+          <p class="prix">150GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/2f25ba7e-5f04-4896-8dd5-87805ccd6b91.jpeg" alt="Femme 2" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Sandale été</h3>
+          <p class="prix">120GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/2 pièces Ensemble body côtelé et pantalon….jpeg" alt="Femme 3" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Bottine cuir</h3>
+          <p class="prix">200GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/Amazon_com_ OQQ Women's Mini Dresses Sexy Ribbed….jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/504a7605-99be-4512-b348-f92030f5099c.jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/7acb1938-b5a4-434e-9ac5-911dd31d6b1d.jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/Tween Girls Butterfly Pattern Print Short Sleeve… (1).jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/aa5b37d0-ff0b-4e2f-b7f5-12155f202793.jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/fc8b3234-b9dc-4236-adad-e6e1a3cbab66.jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/ffe6eda2-aa84-4f8c-bca4-9d0771d74d11.jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/Jeans and brown outfit 🐻 #outfit #tenue #look….jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/Robe-camisole moulante en dentelle avec patchwork….jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/imagefemme/Tween Girls Butterfly Pattern Print Short Sleeve… (1).jpeg" alt="Femme 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right" onclick="moveCarouselFemme(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <h2 style="text-align:center; margin-top:30px;">Vêtements enfants</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn left" onclick="moveCarouselEnfant(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-track" id="carouselTrackEnfant">
+      <div class="produitcard">
+        <img src="image/image enfant/04b6d7e5-83a0-4429-a765-a8d4b5e58a36.jpeg" alt="Enfant 1" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/2 pièces Ensemble robe courte à manches bouffantes….jpeg" alt="Enfant 2" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/2 pièces_ensemble Jeune fille décontracté col….jpeg" alt="Enfant 3" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/238c42f8-1beb-4250-b095-dd040e1f0d8c.jpeg" alt="Enfant 4" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/61682320-604c-4b45-8b05-b5791805e19c.jpeg" alt="Enfant 5" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/acea10ef-d620-4eb3-8bac-85f55fe4b417.jpeg" alt="Enfant 6" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/Adolescent Fille Unicolore Top À Fines Brides… (1).jpeg" alt="Enfant 7" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/Baby Boy Letter Graphic Two Tone Hooded Shirt….jpeg" alt="Enfant 8" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/c23ba50b-5756-4241-879e-a684e8a96479.jpeg" alt="Enfant 9" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/Ensemble 2 pièces pour jeune fille _ top à manches….jpeg" alt="Enfant 10" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/Ensemble deux pièces avec top à manches bouffantes….jpeg" alt="Enfant 11" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/Violet Mignon Collar Sans manches Étoffe Unicolore… (1).jpeg" alt="Enfant 12" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/Jeune Fille À Volants Top À Fines Brides & Imprimé….jpeg" alt="Enfant 13" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+      <div class="produitcard">
+        <img src="image/image enfant/Jeune Garçon À Rayures Chemise & Short Multicolore… (1).jpeg" alt="Enfant 14" style="width:100%;height:250px;object-fit:cover;">
+        <div class="card-content">
+          <h3>Espadrille enfant</h3>
+          <p class="prix">90GNF</p>
+          <button class="add-to-cart">ajouter au panier</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn right" onclick="moveCarouselEnfant(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="footers">
+      <div class="footernewle">
+        <h3>Restez informé de notre nouveauté</h3>
+        <p>Inscrivez vous à notre newsletter et recevez en excusivité nos offre spéciales et les derrière tendances</p>
+        <form id="Newsletterfooter">
+          <input type="email" placeholder="Votre adresse  email" required>
+          <button type="submit" id="bnt">S'inscrire</button>
+        </form>
+      </div>
+      <div class="footer-containe">
+        <div class="footer-section-about">
+          <h2 class="logo">Shopmodern</h2>
+          <p>Votre marketplace de confiance  pour<br> découvrir les meilleurs produits de qualité</p>
+        </div>
+        <div class="categorie">
+          <h4>Categorie</h4>
+          <ul>
+            <li>Vêtement</li>
+            <li>Accessoire</li>
+            <li>Chaussure</li>
+          </ul>
+        </div>
+        <div class="footer-section-lien">
+        <ul>
+          <h3>Navigation</h3>
+          <li><a href="#" id="openLogin"><i class="fas fa-user user-icon"></i> Connexion</a></li>
+        </ul>
+        </div>
+          <div class="social">
+            <h3>Suivez-nous</h3>
+         <a href="#"><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><i class="fab fa-instagram"></i></a>
+         <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+    </div>
+       <div class="botton-bar">
+              <p>&copy; 2025 shopmoderne tous droit reserver</p>
+            </div>
+       </div>
+  <script>
+    // Carousel Homme
+    let posH = 0;
+    const trackH = document.getElementById('carouselTrackHomme');
+    const totalH = trackH.children.length;
+    function getVisibleH() {
+      return Math.floor(document.getElementById('carouselTrackHomme').parentElement.offsetWidth / 270);
+    }
+    function moveCarouselHomme(dir) {
+      const visible = getVisibleH();
+      posH += dir;
+      if (posH < 0) posH = 0;
+      if (posH > totalH - visible) posH = Math.max(0, totalH - visible);
+      trackH.style.transform = `translateX(${-posH * 270}px)`;
+    }
+    window.addEventListener('resize', () => {
+      posH = 0;
+      trackH.style.transform = `translateX(0px)`;
+      posF = 0;
+      trackF.style.transform = `translateX(0px)`;
+      posE = 0;
+      trackE.style.transform = `translateX(0px)`;
+    });
+    // Carousel Femme
+    let posF = 0;
+    const trackF = document.getElementById('carouselTrackFemme');
+    const totalF = trackF.children.length;
+    function getVisibleF() {
+      return Math.floor(document.getElementById('carouselTrackFemme').parentElement.offsetWidth / 270);
+    }
+    function moveCarouselFemme(dir) {
+      const visible = getVisibleF();
+      posF += dir;
+      if (posF < 0) posF = 0;
+      if (posF > totalF - visible) posF = Math.max(0, totalF - visible);
+      trackF.style.transform = `translateX(${-posF * 270}px)`;
+    }
+    // Carousel Enfant
+    let posE = 0;
+    const trackE = document.getElementById('carouselTrackEnfant');
+    const totalE = trackE.children.length;
+    function getVisibleE() {
+      return Math.floor(document.getElementById('carouselTrackEnfant').parentElement.offsetWidth / 270);
+    }
+    function moveCarouselEnfant(dir) {
+      const visible = getVisibleE();
+      posE += dir;
+      if (posE < 0) posE = 0;
+      if (posE > totalE - visible) posE = Math.max(0, totalE - visible);
+      trackE.style.transform = `translateX(${-posE * 270}px)`;
+    }
+    // Modal Connexion JS
+    document.addEventListener('DOMContentLoaded', function() {
+      const openLogin = document.getElementById('openLogin');
+      const loginModal = document.getElementById('loginModal');
+      const closeLogin = document.getElementById('closeLogin');
+      if (openLogin && loginModal && closeLogin) {
+        openLogin.addEventListener('click', function(e) {
+          e.preventDefault();
+          loginModal.style.display = 'flex';
+        });
+        closeLogin.addEventListener('click', function() {
+          loginModal.style.display = 'none';
+          document.getElementById('loginMessage').style.display = 'none';
+        });
+        loginModal.addEventListener('click', function(e) {
+          if (e.target === loginModal) loginModal.style.display = 'none';
+        });
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          document.getElementById('loginMessage').style.display = 'block';
+          setTimeout(function() {
+            loginModal.style.display = 'none';
+            document.getElementById('loginMessage').style.display = 'none';
+            document.getElementById('loginForm').reset();
+          }, 1800);
+        });
+      }
+    });
+    // Ajout au panier avec animation
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = btn.closest('.produitcard');
+        const img = card.querySelector('img').getAttribute('src');
+        const title = card.querySelector('h3').textContent;
+        const price = parseInt(card.querySelector('.prix').textContent);
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        let found = cart.find(item => item.title === title && item.price === price && item.img === img);
+        if (found) {
+          found.qty = (found.qty || 1) + 1;
+        } else {
+          cart.push({ img, title, price, qty: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        const panierIcon = document.getElementById('openCart')?.querySelector('i');
+        if (panierIcon) {
+          panierIcon.classList.add('cart-bounce');
+          setTimeout(() => panierIcon.classList.remove('cart-bounce'), 500);
+        }
+      });
+    });
+    
+  </script>
+</body>
+</html>
